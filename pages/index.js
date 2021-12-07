@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
+import { ChatIcon } from "@heroicons/react/solid";
+import { signIn, useSession } from "next-auth/react";
 
 export default function Home() {
+  const { data: session } = useSession();
   return (
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
       <Head>
@@ -9,21 +12,21 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-[#f8f8f8]'>
-        <div className='flex flex-col items-center justify-center p-24 bg-white rounded-xl shadow-md'>
+      <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-primary'>
+        <div className='flex flex-col items-center justify-center p-24 bg-secondary rounded-xl shadow-md'>
           <div className='relative h-24 w-24 mb-10'>
-            <Image
-              src='/images/whsapplogin.png'
-              alt='whatsapp image'
-              layout='fill'
-              objectFit='contain'
-            />
+            <ChatIcon className='text-[#56483b]' />
           </div>
           <div className='login__text'>
-            <h1 className='text-3xl font-bold'>Sign in to WhatsApp</h1>
+            <h1 className='text-3xl font-bold text-[#56483b]'>
+              Welcome to mimicucu chat
+            </h1>
           </div>
-          <button className='mt-12 p-3 rounded-lg bg-[#0a8d48] text-white capitalize '>
-            Sign In With Google
+          <button
+            onClick={() => signIn()}
+            className='mt-12 py-3 px-10 rounded-lg bg-[#a97a57] text-[#56483b] font-bold text-lg capitalize '
+          >
+            Sign In
           </button>
         </div>
       </main>

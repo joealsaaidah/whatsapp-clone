@@ -1,8 +1,19 @@
 import Image from "next/image";
 import { DotsVerticalIcon, AnnotationIcon } from "@heroicons/react/solid";
 import { SearchIcon } from "@heroicons/react/outline";
+import * as EmailValidator from "email-validator";
 
 const Sidebar = () => {
+  const createChat = () => {
+    const input = prompt(
+      "please enter an email address for the user you wish to chat with"
+    );
+  };
+  if (!input) return;
+  if (EmailValidator.validate(input)) {
+    //push to database
+  }
+
   return (
     <div>
       <div className='flex sticky top-0 justify-between items-center h-20 p-5 shadow-sm'>
@@ -31,7 +42,10 @@ const Sidebar = () => {
       </div>
 
       <div>
-        <button className='w-full py-2 cursor-pointer uppercase hover:bg-gray-100 border-t-[1px] border-b-[1px] transition-all duration-150 ease-out '>
+        <button
+          onClick={createChat}
+          className='w-full py-2 cursor-pointer uppercase hover:bg-gray-100 border-t-[1px] border-b-[1px] transition-all duration-150 ease-out '
+        >
           Start a new chat
         </button>
       </div>
