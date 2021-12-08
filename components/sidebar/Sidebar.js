@@ -1,55 +1,32 @@
-import Image from "next/image";
-import { DotsVerticalIcon, AnnotationIcon } from "@heroicons/react/solid";
-import { SearchIcon } from "@heroicons/react/outline";
-import * as EmailValidator from "email-validator";
+import { SearchIcon } from "@heroicons/react/solid";
+import ChatItem from "./ChatItem";
 
 const Sidebar = () => {
-  const createChat = () => {
-    const input = prompt(
-      "please enter an email address for the user you wish to chat with"
-    );
-  };
-  if (!input) return;
-  if (EmailValidator.validate(input)) {
-    //push to database
-  }
-
   return (
-    <div>
-      <div className='flex sticky top-0 justify-between items-center h-20 p-5 shadow-sm'>
-        {/* header */}
-        <div className='relative h-14 w-14 rounded-full'>
-          <Image
-            src='/images/1.jpg'
-            layout='fill'
-            objectFit='contain'
-            className='rounded-full cursor-pointer hover:opacity-80'
+    <div className='flex flex-col  w-full h-[510px] '>
+      <div className='flex flex-col p-7'>
+        <h1 className='text-lg font-bold font-mono capitalize mb-6'>chat</h1>
+
+        <div className='relative mt-1  rounded-md'>
+          <div className='absolute inset-y-0  pl-3 flex items-center'>
+            <SearchIcon className='h-5 w-5 text-gray-500' />
+          </div>
+          <input
+            className='w-full pl-10 py-2 sm:text-sm bg-gray-200 focus:outline-none focus:bg-white border-transparent border focus:border-purple-400 rounded-md'
+            type='text'
+            placeholder='Search...'
           />
         </div>
-        <div className='flex space-x-2 '>
-          <AnnotationIcon className='icons ' />
-          <DotsVerticalIcon className='icons ' />
-        </div>
-      </div>
-      {/* search */}
-      <div className='flex items-center p-5 rounded-md'>
-        <SearchIcon className='icons' />
-        <input
-          type='text'
-          placeholder='Search in chats...'
-          className='flex-1 outline-none'
-        />
       </div>
 
-      <div>
-        <button
-          onClick={createChat}
-          className='w-full py-2 cursor-pointer uppercase hover:bg-gray-100 border-t-[1px] border-b-[1px] transition-all duration-150 ease-out '
-        >
-          Start a new chat
-        </button>
+      <div className='divide-y divide-purple-300 flex items-center max-h-96 flex-col mt-5 px-3 overflow-y-scroll scrollbar-thumb-purple-900 scrollbar-thin'>
+        <ChatItem />
+        <ChatItem />
+        <ChatItem />
+        <ChatItem />
+        <ChatItem />
+        <ChatItem />
       </div>
-      {/* rooms */}
     </div>
   );
 };

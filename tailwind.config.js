@@ -3,16 +3,25 @@ module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
-    backgroundColor: (theme) => ({
-      ...theme("colors"),
-      primary: "#56483b",
-      secondary: "#a7967b",
-      /* 'danger': '#e3342f', */
-    }),
+    extend: {
+      /* colors: {
+        "purple-heart": {
+          50: "#f9f5fe",
+          100: "#f4ecfe",
+          200: "#e2cffc",
+          300: "#d1b1fa",
+          400: "#af77f7",
+          500: "#8c3df3",
+          600: "#7e37db",
+          700: "#692eb6",
+          800: "#542592",
+          900: "#451e77",
+        },
+      }, */
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar"), require("tailwind-scrollbar-hide")],
 };

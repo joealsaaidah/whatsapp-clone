@@ -12,21 +12,19 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-primary'>
-        <div className='flex flex-col items-center justify-center p-24 bg-secondary rounded-xl shadow-md'>
-          <div className='relative h-24 w-24 mb-10'>
-            <ChatIcon className='text-[#56483b]' />
-          </div>
+      <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-gradient-to-r from-purple-200 to-pink-200'>
+        <div className='flex flex-col items-center justify-center p-16  rounded-xl shadow-lg bg-gradient-to-r from-purple-300 to-pink-300'>
+          <ChatIcon className='h-16 w-16 mb-10 text-purple-500' />
           <div className='login__text'>
-            <h1 className='text-3xl font-bold text-[#56483b]'>
+            <h1 className='text-xl font-thin text-purple-500 font-mono capitalize'>
               Welcome to mimicucu chat
             </h1>
           </div>
           <button
-            onClick={() => signIn()}
-            className='mt-12 py-3 px-10 rounded-lg bg-[#a97a57] text-[#56483b] font-bold text-lg capitalize '
+            onClick={() => signIn("google", { callbackUrl: "/chat" })}
+            className='mt-12 py-3 px-10 rounded-lg text-white font-thin font-mono text-md capitalize bg-gradient-to-r from-purple-400 to-pink-400 hover:from-pink-600 hover:to-purple-600'
           >
-            Sign In
+            sign in with google
           </button>
         </div>
       </main>
